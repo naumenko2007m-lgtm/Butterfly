@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14081f">
+<title>Для Вікулі 🎀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Manrope:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --bg:#14081f; --pink:#ff4d8d; --coral:#ff8a5c; --gold:#ffd27a; --violet:#8a63ff; --mint:#5eead4;
+  --ink:#fff7f2; --mute:#d8bfd6; --line:rgba(255,255,255,.18);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{
+  font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;
+  padding:0 16px calc(48px + env(safe-area-inset-bottom));
+}
+/* ---------- живий фон ---------- */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#2b1050 0%,#14081f 60%)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:drift 18s ease-in-out infinite alternate}
+.o1{width:340px;height:340px;background:var(--pink);top:-90px;left:-90px}
+.o2{width:380px;height:380px;background:var(--violet);bottom:-120px;right:-120px;animation-delay:-6s}
+.o3{width:260px;height:260px;background:var(--coral);top:45%;left:55%;opacity:.35;animation-delay:-11s}
+@keyframes drift{to{transform:translate(60px,50px) scale(1.18)}}
+.fh{position:absolute;bottom:-40px;font-size:20px;opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.5}100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+
+h1,h2{font-family:'Playfair Display',Georgia,serif;margin:.2em 0 .35em;line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(36px,10vw,56px);font-weight:800;background:linear-gradient(135deg,#fff,#ffd0e0 60%,#ffd27a);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(26px,7.4vw,38px);font-weight:700}
+p{line-height:1.6;margin:.55em 0}
+.wrap{max-width:520px;margin:0 auto}
+
+/* ---------- СТАТУС ---------- */
+.status{position:sticky;top:0;z-index:30;margin:0 -16px 16px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
+  background:linear-gradient(rgba(20,8,31,.92),rgba(20,8,31,.72));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.st-row{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800}
+.st-lvl{background:linear-gradient(135deg,var(--pink),var(--coral));color:#fff;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.st-name{flex:1;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-pct{color:var(--gold)}
+.segs{display:flex;gap:4px;margin:9px 0 7px}
+.seg{flex:1;height:6px;border-radius:6px;background:rgba(255,255,255,.14);overflow:hidden;position:relative}
+.seg.done{background:linear-gradient(90deg,var(--pink),var(--coral))}
+.seg.cur{background:rgba(255,255,255,.14)}
+.seg.cur::after{content:"";position:absolute;inset:0;width:50%;background:linear-gradient(90deg,var(--gold),#fff);border-radius:6px;animation:pulseSeg 1.4s ease-in-out infinite alternate}
+@keyframes pulseSeg{to{width:100%}}
+.chips{display:flex;gap:8px;font-size:12px;font-weight:700;color:var(--mute)}
+.chips span{background:rgba(255,255,255,.09);border:1px solid var(--line);padding:3px 9px;border-radius:999px}
+
+/* ---------- картка ---------- */
+.card{position:relative;border-radius:30px;padding:24px 20px;animation:rise .55s cubic-bezier(.2,.8,.2,1) both;
+  background:linear-gradient(160deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
+  border:1px solid var(--line);box-shadow:0 24px 70px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+@keyframes rise{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:none}}
+.tag{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold);
+  background:rgba(255,210,122,.12);border:1px solid rgba(255,210,122,.3);padding:5px 12px;border-radius:999px;margin-bottom:8px}
+.mute{color:var(--mute);font-size:14px}
+.center{text-align:center}
+.hero{height:210px;margin:-24px -20px 16px;border-radius:30px 30px 0 0;background-size:cover;background-position:center 60%;position:relative}
+.hero::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(transparent 40%,rgba(20,8,31,.92))}
+
+/* ---------- КНОПКИ ---------- */
+.btn{position:relative;overflow:hidden;font:inherit;font-weight:800;font-size:16px;border:0;border-radius:18px;padding:15px 24px;color:#fff;cursor:pointer;
+  background:linear-gradient(135deg,#ff4d8d 0%,#ff7a59 100%);text-shadow:0 1px 2px rgba(120,10,50,.35);
+  box-shadow:0 10px 26px rgba(255,77,141,.45),inset 0 1px 0 rgba(255,255,255,.45),inset 0 -3px 0 rgba(0,0,0,.12);
+  transition:transform .12s,box-shadow .2s,filter .2s}
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.4s infinite}
+@keyframes shine{0%,55%{left:-70%}100%{left:130%}}
+.btn:hover{filter:brightness(1.07)} .btn:active{transform:translateY(2px) scale(.97);box-shadow:0 4px 12px rgba(255,77,141,.4)}
+.btn:disabled{filter:grayscale(.6) brightness(.8);cursor:default}
+.btn.ghost{background:rgba(255,255,255,.08);border:1.5px solid var(--line);box-shadow:none;text-shadow:none;color:var(--ink)}
+.btn.ghost::after{display:none}
+.btn.sm{padding:10px 15px;font-size:14px;border-radius:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+input[type=text],input[type=tel]{width:100%;font:inherit;font-size:19px;font-weight:600;padding:15px 16px;border-radius:16px;border:1.5px solid var(--line);
+  background:rgba(10,3,20,.45);color:var(--ink);outline:none;text-align:center;letter-spacing:.05em;transition:.2s}
+input:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,77,141,.22)}
+input::placeholder{color:rgba(216,191,214,.55)}
+.msg{min-height:26px;margin-top:12px;font-weight:700;color:var(--gold);text-align:center}
+.shake{animation:shake .4s}
+@keyframes shake{20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+.big{font-size:68px;text-align:center;margin:4px 0;filter:drop-shadow(0 8px 20px rgba(255,77,141,.5))}
+.opt{display:block;width:100%;margin:10px 0;text-align:left}
+
+/* ---------- ігри ---------- */
+.field{position:relative;height:360px;border-radius:22px;overflow:hidden;background:radial-gradient(circle at 50% 120%,rgba(255,77,141,.25),rgba(10,3,20,.55));border:1px solid var(--line);touch-action:manipulation;user-select:none}
+.fall{position:absolute;top:-50px;font-size:40px;cursor:pointer;animation:fall linear forwards;line-height:1;filter:drop-shadow(0 4px 10px rgba(255,77,141,.6))}
+@keyframes fall{to{transform:translateY(430px) rotate(25deg)}}
+.hud{display:flex;justify-content:space-between;font-weight:800;margin-bottom:10px;font-size:17px}
+.mem{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mc{aspect-ratio:3/4;perspective:700px;cursor:pointer}
+.mc div{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.mc.f div,.mc.m div{transform:rotateY(180deg)}
+.mc span{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.mc .b{background:linear-gradient(135deg,#ff4d8d,#8a63ff);display:grid;place-items:center;font-size:32px;border:1px solid rgba(255,255,255,.3);box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.mc .fr{transform:rotateY(180deg);background-size:cover;background-position:center}
+.mc.m .fr{box-shadow:0 0 0 3px var(--gold) inset}
+.pz{position:relative;width:min(100%,360px);aspect-ratio:1;margin:0 auto;border-radius:18px;overflow:hidden;background:#0a0314;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.pt{position:absolute;width:33.333%;height:33.333%;background-image:url(img/puzzle.jpg);background-size:300% 300%;transition:left .18s,top .18s;cursor:pointer;border:2px solid rgba(20,8,31,.9);border-radius:8px}
+.fakes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fk{padding:15px 10px;border-radius:16px;border:0;font:inherit;font-weight:800;font-size:15px;cursor:pointer;color:#fff;transition:transform .1s,box-shadow .1s}
+.fk:active{transform:translateY(3px);box-shadow:none!important}
+.fk.red{background:linear-gradient(#ff4b5c,#d62839);box-shadow:0 5px 0 #8f1424,0 10px 20px rgba(214,40,57,.4);animation:alarm 1.2s infinite}
+@keyframes alarm{50%{filter:brightness(1.25)}}
+.fk.blue{background:linear-gradient(#5b8dff,#3a5de0);box-shadow:0 5px 0 #243a99}
+.fk.green{background:linear-gradient(#3ddc97,#1f9e6a);box-shadow:0 5px 0 #136845}
+.fk.gold{background:linear-gradient(#ffd75e,#f0a30a);box-shadow:0 5px 0 #a36a00;color:#3b2500}
+.fk.gray{background:linear-gradient(#8a8aa3,#5d5d75);box-shadow:0 5px 0 #3a3a4c}
+.fk.vio{background:linear-gradient(#a77bff,#6d3fe0);box-shadow:0 5px 0 #43249c}
+.fk.cy{background:linear-gradient(#35d6e6,#1196a8);box-shadow:0 5px 0 #0a6370}
+.real{display:block;margin:26px auto 0;background:none;border:0;color:var(--pink);font-size:15px;opacity:.55;cursor:pointer;padding:14px 20px;animation:beat 1.6s infinite}
+@keyframes beat{50%{transform:scale(1.35);opacity:.95}}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(30px);background:#fff;color:#2a0f1f;
+  font-weight:800;padding:13px 20px;border-radius:16px;opacity:0;transition:.3s;z-index:80;max-width:88vw;text-align:center;pointer-events:none;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.digits{font-size:34px;letter-spacing:.25em;margin:14px 0;font-weight:800;color:var(--gold);text-align:center;text-shadow:0 0 24px rgba(255,210,122,.6)}
+
+/* ---------- фінал ---------- */
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;margin:16px 0}
+.timer div{background:rgba(255,255,255,.09);border:1px solid var(--line);border-radius:16px;padding:12px 2px}
+.timer b{display:block;font-family:'Playfair Display',serif;font-size:30px;color:var(--gold)}
+.timer span{font-size:10.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+.gal{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 12px 18px;margin:0 -14px}
+.gal figure{margin:0;flex:0 0 74%;scroll-snap-align:center;background:#fffaf5;padding:10px 10px 0;border-radius:6px;cursor:zoom-in;box-shadow:0 14px 30px rgba(0,0,0,.45);transform:rotate(-1.6deg)}
+.gal figure:nth-child(even){transform:rotate(1.8deg)}
+.gal img{display:block;width:100%;height:340px;object-fit:cover;border-radius:2px}
+.gal figcaption{font-family:'Caveat',cursive;font-size:24px;font-weight:700;color:#4a2438;text-align:center;padding:8px 0 10px}
+.letter{font-family:'Caveat','Playfair Display',cursive;font-size:25px;line-height:1.4;white-space:pre-wrap;color:#fff0e6}
+.lb{position:fixed;inset:0;background:rgba(5,0,12,.94);z-index:90;display:none;place-items:center;padding:16px}
+.lb.on{display:grid} .lb img{max-width:100%;max-height:92vh;border-radius:12px}
+canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:100}
+.skip{display:block;margin:26px auto 0;background:none;border:0;color:rgba(255,255,255,.35);font:inherit;font-size:12px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="bg" id="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="wrap">
+  <div class="status" id="status">
+    <div class="st-row"><span class="st-lvl" id="stLvl"></span><span class="st-name" id="stName"></span><span class="st-pct" id="stPct"></span></div>
+    <div class="segs" id="segs"></div>
+    <div class="chips"><span id="chH">💡 0</span><span id="chF">🎭 0</span><span id="chT">⏱ 00:00</span></div>
+  </div>
+  <div id="stage"></div>
+  <button class="skip" id="reset">почати спочатку</button>
+</div>
+<div class="toast" id="toast"></div>
+<div class="lb" id="lb"><img alt=""></div>
+<canvas id="cf"></canvas>
+
+<script>
+/* =========================================================
+   НАЛАШТУВАННЯ — міняй тут ✏️
+   ========================================================= */
+const CONFIG = {
+  name: 'Вікуля',
+  start: '2026-07-10T00:00:00',          // початок стосунків: 10.07.2026
+  letter:
+`Вікуля, привіт 🎀
+
+Ось і пролетіли 4 місяці з 10 липня. Я не вмію гарно говорити, тому зробив ось таку штуку — щоб ти трохи пограла, посміялась і згадала, як нам було добре.
+
+Дякую, що ти є. За заходи сонця, за ковдру і гірлянду, за довгі дзвінки і за те, що поруч із тобою мені завжди спокійно.
+
+Я дуже тебе кохаю. І це тільки початок ❤️`,
+  gift: 'А ще не все… а може, і все 😏',
+  photos: [
+    ['mountains','Над хмарами'],
+    ['beach','Захід біля моря'],
+    ['tower','Захід зверху'],
+    ['odesa','Нічна прогулянка'],
+    ['prom','Випускний'],
+    ['couch','Ковдра і гірлянда'],
+    ['church','Вечірнє місто'],
+    ['call1','Наші дзвінки'],
+    ['call2','Завжди на зв’язку'],
+  ]
+};
+const NAMES=['Старт','Пароль','Загадки','Лови сердечка','Кімната кнопок','Кодовий замок','Меморі','Пазл','Шифр','Вікторина','Фінал'];
+/* ========================================================= */
+
+const $ = (s,r=document)=>r.querySelector(s);
+const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,y]of Object.entries(a)){if(x==='class')e.className=y;else if(x==='html')e.innerHTML=y;else if(x.startsWith('on'))e.addEventListener(x.slice(2),y);else e.setAttribute(x,y)}k.flat().forEach(c=>e.append(c.nodeType?c:document.createTextNode(c)));return e};
+const norm=s=>s.toLowerCase().replace(/ё/g,'е').replace(/[ʼ’'`]/g,'').replace(/[^a-zа-яіїєґ0-9.]/g,'');
+const rnd=(a,b)=>Math.random()*(b-a)+a;
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function toast(t){const x=$('#toast');x.textContent=t;x.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>x.classList.remove('on'),2300)}
+function shake(e){e.classList.remove('shake');void e.offsetWidth;e.classList.add('shake')}
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+function daysTogether(){return Math.floor((Date.now()-new Date(CONFIG.start))/864e5)}
+
+/* ---------- статистика / статус ---------- */
+const stats={hints:0,fakes:0,t0:Date.now()};
+function useHint(){stats.hints++;renderChips();if(stats.hints===1)toast('Підказка коштує 1 поцілунок 😘')}
+function addFake(){stats.fakes++;renderChips()}
+function renderChips(){
+  $('#chH').textContent='💡 '+stats.hints;$('#chF').textContent='🎭 '+stats.fakes;
+  const s=Math.floor((Date.now()-stats.t0)/1000);$('#chT').textContent='⏱ '+String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+}
+setInterval(renderChips,1000);
+
+/* ---------- фон: літаючі серця ---------- */
+(function(){const bg=$('#bg'),em=['❤️','💗','🎀','✨','💖'];
+  for(let i=0;i<14;i++){const f=el('span',{class:'fh'},em[i%em.length]);f.style.left=rnd(2,96)+'%';f.style.animationDuration=rnd(11,22)+'s';f.style.animationDelay=(-rnd(0,20))+'s';f.style.fontSize=rnd(14,28)+'px';bg.append(f)}})();
+
+/* убегающая кнопка */
+function dodge(btn,onCatch){
+  let fixed=false;
+  const run=e=>{
+    if(e&&e.cancelable)e.preventDefault();
+    if(!fixed){const r=btn.getBoundingClientRect();btn.style.width=r.width+'px';btn.style.position='fixed';fixed=true}
+    const w=btn.offsetWidth,h=btn.offsetHeight;
+    btn.style.left=rnd(10,innerWidth-w-10)+'px';
+    btn.style.top=rnd(110,innerHeight-h-20)+'px';
+    btn.style.zIndex=40;
+  };
+  btn.addEventListener('pointerenter',run);
+  btn.addEventListener('touchstart',run,{passive:false});
+  btn.addEventListener('click',e=>{if(onCatch)onCatch(e)});
+}
+
+/* ---------- конфетті ---------- */
+function confetti(){
+  const c=$('#cf'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+  const em=['❤️','💖','💗','🎀','✨','🌸'];
+  const ps=Array.from({length:70},()=>({x:rnd(0,c.width),y:rnd(-c.height,0),v:rnd(2,5),s:rnd(18,34),e:em[Math.floor(rnd(0,em.length))],r:rnd(-1,1)}));
+  let t=0;(function f(){x.clearRect(0,0,c.width,c.height);ps.forEach(p=>{p.y+=p.v;p.x+=Math.sin((p.y+p.r*50)/40)*1.2;x.font=p.s+'px serif';x.fillText(p.e,p.x,p.y)});
+    if(++t<320)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})();
+}
+
+/* =========================================================
+   ЕТАПИ
+   ========================================================= */
+const stages=[];
+let cur=0, timers=[];
+const addT=t=>timers.push(t);
+function clearTimers(){timers.forEach(t=>{clearInterval(t);clearTimeout(t)});timers=[]}
+
+function renderStatus(n){
+  const last=stages.length-1;
+  $('#stLvl').textContent=n===0?'Старт':n===last?'Фінал 🎉':`Рівень ${n} з ${last-1}`;
+  $('#stName').textContent=NAMES[n];
+  $('#stPct').textContent=Math.round(n/last*100)+'%';
+  const sg=$('#segs');sg.innerHTML='';
+  for(let i=0;i<=last;i++)sg.append(el('div',{class:'seg'+(i<n?' done':'')+(i===n?' cur':'')}));
+  renderChips();
+}
+function go(n){
+  clearTimers();cur=n;store.set('gift_stage',n);
+  renderStatus(n);
+  const st=$('#stage');st.innerHTML='';
+  const card=el('div',{class:'card'});st.append(card);
+  stages[n](card);
+  scrollTo({top:0,behavior:'smooth'});
+}
+const next=()=>go(cur+1);
+
+/* шаблон «пароль» */
+function passStage(card,{tag,title,text,check,hints,placeholder,ok,inputMode}){
+  const inp=el('input',{type:'text',placeholder:placeholder||'Введи відповідь…',autocomplete:'off',autocapitalize:'off',inputmode:inputMode||'text'});
+  const msg=el('div',{class:'msg'});
+  let wrong=0,hi=0;
+  const wrongMsgs=['Мимо 🙈','Майже… чи ні 😏','Ще разочок!','Ну ж бо, ти можеш 💪','Я в тебе вірю 🥹'];
+  const submit=()=>{
+    if(!inp.value.trim())return;
+    if(check(inp.value)){msg.textContent=ok||'Правильно! 🎉';inp.disabled=true;confetti();addT(setTimeout(next,1300))}
+    else{wrong++;msg.textContent=wrongMsgs[(wrong-1)%wrongMsgs.length];shake(inp)}
+  };
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')submit()});
+  const hint=el('button',{class:'btn ghost sm',onclick:()=>{
+    if(hi<hints.length){msg.textContent='💡 '+hints[hi++];useHint()}
+    else msg.textContent='Підказки закінчились, але ти розумничка ❤️'}},'💡 Підказка');
+  card.append(el('span',{class:'tag'},tag),el('h2',{},title),el('p',{html:text}),inp,
+    el('div',{class:'row'},el('button',{class:'btn',onclick:submit},'Перевірити'),hint),msg);
+  setTimeout(()=>inp.focus({preventScroll:true}),300);
+}
+
+/* 0. Старт */
+stages.push(card=>{
+  card.classList.add('center');
+  card.append(
+    el('div',{class:'hero',style:'background-image:url(img/mountains.jpg)'}),
+    el('h1',{},`Привіт, ${CONFIG.name}! 🎀`),
+    el('p',{},'Це не звичайний сайт. Тут на тебе чекають загадки, паролі, ігри та кілька кнопок, яким не можна вірити.'),
+    el('p',{class:'mute'},'Пройди всі рівні — наприкінці буде сюрприз.'));
+  const msg=el('div',{class:'msg'});
+  const no=el('button',{class:'btn ghost'},'Не хочу');
+  let n=0;const noMsgs=['Ей, не так швидко 😤','Кнопка «не хочу» зламалась 🔧','Вона просто не працює 😌'];
+  dodge(no,()=>{addFake();msg.textContent=noMsgs[n++%noMsgs.length]});
+  const del=el('button',{class:'btn ghost',onclick:()=>{
+    let p=0;del.disabled=true;addFake();
+    const i=setInterval(()=>{p+=Math.floor(rnd(8,22));if(p>=99){p=99;clearInterval(i);del.textContent='Видалення: 99%… 🤡';
+      setTimeout(()=>{msg.textContent='Жартую, сайт на місці 😄';del.textContent='Видалити сайт';del.disabled=false},1600)}else del.textContent='Видаляю сайт… '+p+'%'},350);addT(i)}},'Видалити сайт');
+  card.append(el('div',{class:'row',style:'justify-content:center'},
+    el('button',{class:'btn',onclick:next},'Поїхали 🚀'),no,del),msg);
+});
+
+/* 1. Пароль: дата */
+stages.push(card=>passStage(card,{
+  tag:'Рівень 1 · Пароль',title:'Дата, з якої все почалось',
+  text:'Перший пароль — день і місяць, коли ми стали парою. Формат <b>ДД.ММ</b>',
+  placeholder:'ДД.ММ',
+  check:v=>/^10[.\-\/,\s]?0?7([.\-\/,\s]?(20)?26)?$/.test(v.trim())||norm(v)==='1007',
+  hints:['Це було влітку ☀️','Місяць — липень. Число — десяте.'],
+  ok:'Точно! 10 липня — найкращий день 💖'}));
+
+/* 2. Загадки */
+stages.push(card=>{
+  const R=[
+    {q:'У мене немає рук, але я вмію обіймати. Я не співаю, але від мене тепло. Ти дістаєш мене, коли змерзла.',a:['плед','пледик','ковдра','ковдрочка','покривало','одеяло'],h:'Він м’який, і ви з ним на одному з фото 😉'},
+    {q:'Чим більше цього віддаєш — тим більше його стає. Його не купити, але можна подарувати.',a:['любов','кохання','ніжність','тепло','щастя','любовь'],h:'Шість літер. І воно в кожній нашій фотографії.'},
+    {q:'Буває солодким, але не цукерка. Буває довгим, але не потяг. Без слів каже «кохаю».',a:['поцілунок','поцілуночок','цілунок','поцілунки','поцелуй'],h:'Робиться губами 😘'},
+  ];
+  let i=0;const box=el('div');card.append(box);
+  const show=()=>{
+    box.innerHTML='';
+    const r=R[i],inp=el('input',{type:'text',placeholder:'Відгадка…',autocomplete:'off'}),msg=el('div',{class:'msg'});
+    const sub=()=>{
+      if(R[i].a.some(x=>norm(x)===norm(inp.value))){confetti();msg.textContent='Так! 🎉';inp.disabled=true;
+        addT(setTimeout(()=>{i++;i<R.length?show():next()},1100))}
+      else if(inp.value.trim()){msg.textContent='Ні-ні, подумай ще 🤔';shake(inp)}
+    };
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter')sub()});
+    box.append(el('span',{class:'tag'},`Рівень 2 · Загадка ${i+1} з ${R.length}`),el('h2',{},'Загадка'),el('p',{style:'font-size:18px'},r.q),inp,
+      el('div',{class:'row'},el('button',{class:'btn',onclick:sub},'Відповісти'),
+        el('button',{class:'btn ghost sm',onclick:()=>{msg.textContent='💡 '+r.h;useHint()}},'💡 Підказка')),msg);
+  };
+  show();
+});
+
+/* 3. Ловимо сердечка */
+stages.push(card=>{
+  const GOAL=12,TIME=30;let score=0,left=TIME,over=false;
+  const sc=el('span',{},`❤️ 0 / ${GOAL}`),tm=el('span',{},`⏱ ${left}`);
+  const field=el('div',{class:'field'});
+  const msg=el('div',{class:'msg'});
+  card.append(el('span',{class:'tag'},'Рівень 3 · Міні-гра'),el('h2',{},'Лови сердечка'),
+    el('p',{},`Тапай по ❤️ — треба зловити ${GOAL} за ${TIME} секунд. Розбиті 💔 не чіпай!`),
+    el('div',{class:'hud'},sc,tm),field,msg);
+  let tries=0;
+  const finish=win=>{
+    over=true;clearTimers();field.innerHTML='';
+    if(win){msg.textContent='Ти зловила всі сердечка! 💖';confetti();addT(setTimeout(next,1600))}
+    else{tries++;msg.innerHTML='';msg.append('Не встигла 😅 ',el('button',{class:'btn sm',onclick:()=>go(cur)},'Ще раз'));
+      if(tries>=2)msg.append(' ',el('button',{class:'btn ghost sm',onclick:next},'Пропустити (нікому не скажу)'))}
+  };
+  const spawn=()=>{
+    if(over)return;
+    const bad=Math.random()<.22;
+    const h=el('div',{class:'fall'},bad?'💔':'❤️');
+    h.style.left=rnd(4,86)+'%';h.style.animationDuration=rnd(2.6,4.2)+'s';
+    const hit=e=>{e.preventDefault();if(over||h.dead)return;h.dead=1;
+      score=Math.max(0,score+(bad?-2:1));sc.textContent=`❤️ ${score} / ${GOAL}`;
+      h.textContent=bad?'💥':'✨';h.style.transition='.25s';h.style.opacity=0;setTimeout(()=>h.remove(),250);
+      if(score>=GOAL)finish(true)};
+    h.addEventListener('pointerdown',hit);
+    h.addEventListener('animationend',()=>h.remove());
+    field.append(h);
+  };
+  addT(setInterval(spawn,520));
+  addT(setInterval(()=>{left--;tm.textContent='⏱ '+left;if(left<=0&&!over)finish(false)},1000));
+});
+
+/* 4. Кімната фейк-кнопок */
+stages.push(card=>{
+  let fakes=0;const cnt=el('span',{},'Фейкових натиснуто: 0');
+  const msg=el('div',{class:'msg'});
+  const ann=t=>{fakes++;addFake();cnt.textContent='Фейкових натиснуто: '+fakes;msg.textContent=t;
+    if(fakes===4)toast('Підказка: потрібна кнопка — наймиліша та найскромніша 👀')};
+  const F=[
+    ['НЕ НАТИСКАТИ','red',()=>{document.body.classList.add('shake');setTimeout(()=>document.body.classList.remove('shake'),400);ann('Я ж просив… 🙄')}],
+    ['Виграти 1 000 000 ₴','gold',()=>ann('Вітаю! Ти вже виграла — мене 😎')],
+    ['Скасувати','gray',()=>ann('Скасувати наші стосунки не можна. Такої функції немає.')],
+    ['Далі ➡️','blue',()=>ann('Спершу знайди справжню кнопку 😌')],
+    ['Завантажити ще кохання','green',b=>{b.disabled=true;let p=0;const i=setInterval(()=>{p+=Math.floor(rnd(10,25));if(p>=99){p=99;clearInterval(i);b.textContent='Помилка: кохання забагато 💥';
+      setTimeout(()=>{b.textContent='Завантажити ще кохання';b.disabled=false},1800)}else b.textContent='Завантажую… '+p+'%'},300);addT(i);ann('Завантаження пішло…')}],
+    ['Прийняти cookies 🍪','vio',()=>ann('Я з’їв усі печеньки. Їх більше немає.')],
+    ['Натисни мене','cy',()=>ann('А от і ні. Це теж фейк 😈')],
+    ['Не тисни (серйозно)','red',null],
+  ];
+  const grid=el('div',{class:'fakes'});
+  F.forEach(([t,c,f])=>{
+    const b=el('button',{class:'fk '+c},t);
+    if(f)b.addEventListener('click',()=>f(b));
+    else dodge(b,()=>ann('Спіймала! Але тобі за це нічого 🤭'));
+    grid.append(b);
+  });
+  const real=el('button',{class:'real',title:'?',onclick:()=>{confetti();msg.textContent='Знайшла справжню! 🥰';addT(setTimeout(next,1200))}},'♥');
+  card.append(el('span',{class:'tag'},'Рівень 4 · Пастка'),el('h2',{},'Кімната кнопок'),
+    el('p',{},'Тут одна справжня кнопка, а решта — брехня. Знайди ту, що веде далі.'),
+    el('p',{class:'mute'},cnt),grid,msg,real);
+});
+
+/* 5. Кодовий замок */
+stages.push(card=>{
+  const real=daysTogether();
+  const inp=el('input',{type:'tel',placeholder:'Кількість днів',inputmode:'numeric'});
+  const msg=el('div',{class:'msg'});let hi=0;
+  const sub=()=>{
+    const n=parseInt(inp.value,10);if(isNaN(n))return;
+    if(Math.abs(n-real)<=1){msg.textContent=`Так! ${real} днів разом 💞`;inp.disabled=true;confetti();addT(setTimeout(next,1500))}
+    else{msg.textContent=n<real?'Більше! Ми разом довше ⬆️':'Менше, ми не так давно разом ⬇️';shake(inp)}
+  };
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')sub()});
+  const H=['Рахуй від 10 липня до сьогоднішнього дня.','У липні 31 день, у серпні 31, у вересні 30, у жовтні 31 😉','Це більше за сто.'];
+  card.append(el('span',{class:'tag'},'Рівень 5 · Кодовий замок'),el('div',{class:'big'},'🔐'),el('h2',{class:'center'},'Скільки днів ми разом?'),
+    el('p',{class:'center'},'Код — кількість днів від 10 липня до сьогодні.'),inp,
+    el('div',{class:'row'},el('button',{class:'btn',onclick:sub},'Відкрити'),
+      el('button',{class:'btn ghost sm',onclick:()=>{msg.textContent='💡 '+H[hi++%H.length];useHint()}},'💡 Підказка')),msg);
+});
+
+/* 6. Меморі */
+stages.push(card=>{
+  const imgs=['prom','mountains','tower','beach','church','odesa'];
+  const deck=shuffle([...imgs,...imgs]);let open=[],lock=false,pairs=0,moves=0;
+  const mv=el('span',{},'Ходів: 0');
+  const grid=el('div',{class:'mem'});
+  deck.forEach(n=>{
+    const c=el('div',{class:'mc'},el('div',{},el('span',{class:'b'},'🎀'),el('span',{class:'fr',style:`background-image:url(img/${n}.jpg)`})));
+    c.addEventListener('click',()=>{
+      if(lock||c.classList.contains('f')||c.classList.contains('m'))return;
+      c.classList.add('f');open.push([c,n]);
+      if(open.length===2){moves++;mv.textContent='Ходів: '+moves;lock=true;
+        if(open[0][1]===open[1][1]){open.forEach(([x])=>{x.classList.remove('f');x.classList.add('m')});open=[];lock=false;pairs++;
+          mv.textContent=`Ходів: ${moves} · Пар: ${pairs}/${imgs.length}`;
+          if(pairs===imgs.length){confetti();toast('Ти все запам’ятала 💖');addT(setTimeout(next,1800))}}
+        else addT(setTimeout(()=>{open.forEach(([x])=>x.classList.remove('f'));open=[];lock=false},800))}
+    });
+    grid.append(c);
+  });
+  card.append(el('span',{class:'tag'},'Рівень 6 · Міні-гра'),el('h2',{},'Знайди пари'),
+    el('p',{},'Це наші моменти. Знайди однакові фотографії.'),el('p',{class:'mute'},mv),grid);
+});
+
+/* 7. Пазл */
+stages.push(card=>{
+  const N=3;let done=false;
+  const box=el('div',{class:'pz'});
+  const msg=el('div',{class:'msg'});
+  const pos=i=>[(i%N)*100/N,Math.floor(i/N)*100/N];
+  const tiles=[...Array(N*N).keys()];
+  let e=N*N-1;
+  const nb=i=>{const r=Math.floor(i/N),c=i%N,o=[];if(r>0)o.push(i-N);if(r<N-1)o.push(i+N);if(c>0)o.push(i-1);if(c<N-1)o.push(i+1);return o};
+  let prev=-1;
+  for(let k=0;k<120;k++){const o=nb(e).filter(x=>x!==prev);const m=o[Math.floor(Math.random()*o.length)];[tiles[e],tiles[m]]=[tiles[m],tiles[e]];prev=e;e=m}
+  const els={};
+  for(let id=0;id<N*N-1;id++){
+    const t=el('div',{class:'pt'});t.style.backgroundPosition=`${(id%N)*100/(N-1)}% ${Math.floor(id/N)*100/(N-1)}%`;
+    t.addEventListener('click',()=>{
+      if(done)return;const i=tiles.indexOf(id);
+      if(nb(i).includes(e)){[tiles[i],tiles[e]]=[tiles[e],tiles[i]];e=i;draw();
+        if(tiles.every((v,k)=>v===k)){done=true;msg.textContent='Зібрала! 🥰';confetti();addT(setTimeout(next,1600))}}
+    });
+    els[id]=t;box.append(t);
+  }
+  const draw=()=>{tiles.forEach((id,i)=>{if(id===N*N-1)return;const[x,y]=pos(i);els[id].style.left=x+'%';els[id].style.top=y+'%'})};
+  draw();
+  const peek=el('button',{class:'btn ghost sm',onclick:()=>{useHint();
+    const p=el('img',{src:'img/puzzle.jpg',style:'width:120px;border-radius:14px;margin-top:10px'});peek.after(p);peek.remove()}},'👀 Показати картинку');
+  card.append(el('span',{class:'tag'},'Рівень 7 · Пазл'),el('h2',{},'Збери нас'),
+    el('p',{},'Рухай плитки, поки не вийде фотографія з випускного.'),box,el('div',{class:'row',style:'justify-content:center'},peek),msg);
+});
+
+/* 8. Шифр */
+stages.push(card=>passStage(card,{
+  tag:'Рівень 8 · Шифр',title:'Таємне повідомлення',
+  text:'Розшифруй слово і введи його:<div class="digits">ЮАХОК</div>',
+  check:v=>['кохаю','якохаютебе','люблю','ялюблютебе','ялюблютебя'].includes(norm(v)),
+  hints:['Прочитай справа наліво.','Це те, що я хочу тобі сказати 🥹'],
+  ok:'Я теж 💖'}));
+
+/* 9. Вікторина (всі відповіді правильні) */
+stages.push(card=>{
+  const Q=[
+    {q:'Хто найгарніша дівчина на світі?',o:['Ти','Однозначно ти','Теж ти','Віка (Вікуля 🎀)'],c:['Правильно!','Звісно!','Абсолютно вірно!','Бінго!']},
+    {q:'Що найкраще на 4 місяці стосунків?',o:['Торт 🍰','Я 😎','Торт зі мною','Усі варіанти'],c:['Торт буде…','Згоден із собою!','Ідеальна відповідь!','Розумничка!']},
+  ];
+  let i=0;const box=el('div');card.append(box);
+  const show=()=>{
+    box.innerHTML='';const r=Q[i],msg=el('div',{class:'msg'});
+    box.append(el('span',{class:'tag'},`Рівень 9 · Вікторина ${i+1}/${Q.length}`),el('h2',{},r.q));
+    r.o.forEach((t,k)=>box.append(el('button',{class:'btn ghost opt',onclick:()=>{
+      msg.textContent=r.c[k];confetti();
+      [...box.querySelectorAll('.opt')].forEach(x=>x.disabled=true);
+      addT(setTimeout(()=>{i++;i<Q.length?show():next()},1200))}},t)));
+    box.append(msg);
+  };
+  show();
+});
+
+/* 10. Фінал */
+stages.push(card=>{
+  confetti();
+  const t0=new Date(CONFIG.start);
+  const tm=el('div',{class:'timer'});
+  const upd=()=>{const d=Date.now()-t0;const days=Math.floor(d/864e5),h=Math.floor(d/36e5)%24,m=Math.floor(d/6e4)%60,s=Math.floor(d/1e3)%60;
+    tm.innerHTML=`<div><b>${days}</b><span>днів</span></div><div><b>${h}</b><span>годин</span></div><div><b>${m}</b><span>хвилин</span></div><div><b>${s}</b><span>секунд</span></div>`};
+  upd();addT(setInterval(upd,1000));
+  card.append(el('span',{class:'tag'},'Фінал'),el('h1',{},'4 місяці разом 💞'),
+    el('p',{},`Ти пройшла всі рівні, ${CONFIG.name}! Ось скільки ми вже разом:`),tm,
+    el('p',{class:'mute'},`Підказок використано: ${stats.hints} · Фейкових кнопок натиснуто: ${stats.fakes}`));
+
+  const gal=el('div',{class:'gal'});
+  CONFIG.photos.forEach(([n,c])=>{
+    const f=el('figure',{},el('img',{src:`img/${n}.jpg`,alt:c,loading:'lazy'}),el('figcaption',{},c));
+    f.addEventListener('click',()=>{const lb=$('#lb');$('img',lb).src=`img/${n}.jpg`;lb.classList.add('on')});
+    gal.append(f);
+  });
+  card.append(el('h2',{style:'margin-top:22px'},'Наші моменти'),gal);
+
+  const letter=el('div',{class:'letter'});
+  card.append(el('h2',{style:'margin-top:14px'},'Тобі ✉️'),letter);
+  let k=0;const full=CONFIG.letter;
+  const ty=setInterval(()=>{letter.textContent=full.slice(0,++k);if(k>=full.length){clearInterval(ty);ask()}},28);addT(ty);
+
+  function ask(){
+    const box=el('div',{class:'center',style:'margin-top:26px'});
+    const msg=el('div',{class:'msg'});
+    const yes=el('button',{class:'btn',onclick:()=>{confetti();setTimeout(confetti,900);
+      msg.textContent='Ура!! Значить йдемо далі разом 🥰';gift.style.display='block';yes.disabled=true}},'Так, йдемо ❤️');
+    const no=el('button',{class:'btn ghost'},'Ні');
+    dodge(no,()=>{addFake();msg.textContent='Ця кнопка просто не працює 😌'});
+    const gift=el('div',{class:'card',style:'display:none;margin-top:18px;background:linear-gradient(135deg,rgba(255,77,141,.3),rgba(255,210,122,.22))'},
+      el('div',{class:'big'},'🎁'),el('p',{class:'center',style:'font-weight:700'},CONFIG.gift));
+    box.append(el('h2',{},'Йдемо далі разом?'),el('div',{class:'row',style:'justify-content:center'},yes,no),msg,gift);
+    card.append(box);box.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+});
+
+/* ---------- запуск ---------- */
+$('#lb').addEventListener('click',()=>$('#lb').classList.remove('on'));
+$('#reset').addEventListener('click',()=>{store.set('gift_stage',0);stats.hints=0;stats.fakes=0;stats.t0=Date.now();go(0)});
+(function init(){
+  const q=parseInt(new URLSearchParams(location.search).get('skip'),10);
+  const saved=parseInt(store.get('gift_stage'),10);
+  go(!isNaN(q)?Math.min(q,stages.length-1):(!isNaN(saved)?Math.min(saved,stages.length-1):0));
+})();
+</script>
+</body>
+</html>
